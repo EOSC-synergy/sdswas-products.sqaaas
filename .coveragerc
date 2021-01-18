@@ -1,0 +1,6 @@
+[report]
+include =
+    src/sdswas/*
+omit =
+    */test*
+    */upgrades/*
