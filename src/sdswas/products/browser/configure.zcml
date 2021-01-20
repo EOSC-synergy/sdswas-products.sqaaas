@@ -18,4 +18,51 @@
       directory="static"
       />
 
+  <browser:page
+     name="product_view"
+     for="*"
+     layer="zope.interface.Interface"
+     template="templates/product_view.pt"
+     permission="zope2.View"
+   />
+
+  <browser:page
+     name="product_utils"
+     for="*"
+     layer="zope.interface.Interface"
+     template="templates/product_utils.pt"
+     permission="zope2.View"
+   />
+
+
+  <browser:page
+     name="product_banner"
+     for="*"
+     layer="zope.interface.Interface"
+     class=".Product.Product"
+     template="templates/product_banner.pt"
+     permission="zope2.View"
+   />
+
+
+  <browser:page
+     name="product_list"
+     for="*"
+     class=".Product.Product"
+     template="templates/product_list.pt"
+     permission="zope2.View"
+     menu="plone_displayviews"
+     title="Product listing"
+   />
+
+   <browser:page
+    name="product_relateditems"
+    for="*"
+    layer="zope.interface.Interface"
+    class=".Product.Product"
+    template="templates/product_relateditems.pt"
+    permission="zope2.View"
+/>
+
+
 </configure>

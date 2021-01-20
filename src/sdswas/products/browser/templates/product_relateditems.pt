@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+ >
+
+<!-- Product - related products -->
+<section class="bg-color-grey-light"
+    tal:define="items view/related_items"
+    tal:condition="items">
+
+    <div class="prod-related-wrap main-wrap main-padding">
+
+        <div class="prod-related-container main-container">
+
+            <div class="prod-related-text">
+                <h2>Explore related products</h2>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laudantium explicabo beatae ratione
+                veritatis, fuga veniam inventore incidunt vel voluptas, consectetur perferendis distinctio ducimus
+                ipsam placeat aspernatur.
+                </p>
+            </div>
+            <!-- Products cards -->
+            <div class="relpro-cards-container">
+
+                <tal:row tal:repeat="item items">
+
+                    <metal:macro use-macro="context/product_utils/macros/card"/>
+
+                </tal:row>
+
+            </div><!-- Related products cards ends -->
+        </div>
+
+    </div>
+
+</section><!-- Product - related products ends -->
+
+</html>

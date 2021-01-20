@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="sdswas.products">
+<body>
+    <metal:main fill-slot="main"><!-- Page content -->
+        <div class="page-content">
+        <!-- Banner top -->
+        <section class="banner-top bg-color-white">
+            <div class="banner-top-wrap main-wrap main-padding">
+            <div class="banner-top-container main-container">
+                <div class="page-title">
+                <h1>Products</h1>
+                </div>
+            </div>
+            </div>
+        </section>
+        <!-- Banner top ends -->
+        <!-- Products intro -->
+        <section class="bg-color-white">
+            <!-- Products intro wrap -->
+            <div class="products-intro-wrap main-wrap main-padding">
+            <!-- Products intro container -->
+            <div class="products-intro-container main-container">
+
+                <!-- Products intro text -->
+                <div class="products-intro-text">
+                <h2>Overview</h2>
+
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque quisquam delectus laborum quidem
+                    suscipit odio consequatur similique eos? Quidem blanditiis, quam itaque atque quibusdam,
+                    corrupti
+                    sint magni quis dolorum maxime maiores recusandae cumque fugit. Repellendus, accusamus. Nam
+                    repudiandae distinctio, eos temporibus voluptatum cupiditate perferendis? Dolores, at neque
+                    dolorum
+                    commodi expedita eveniet dignissimos minus quo corrupti nesciunt impedit temporibus velit fugit
+                    sed
+                </p>
+
+                <!-- Cta -->
+                <div class="flex-container">
+                    <a class="products-intro-cta outlined-cta" href="#" target="_self">
+                    <p>User guide</p>
+                    <i class="icon-download"></i>
+                    </a><!-- Cta ends -->
+                </div>
+
+                </div><!-- Products intro text ends -->
+
+                <!-- Products intro image -->
+                <div class="products-intro-image">
+                <img src="img/img-dummie-dust-storm.jpg" alt="">
+                </div><!-- Products intro image ends -->
+
+            </div><!-- Products intro container ends -->
+            </div><!-- Products intro wrap ends -->
+        </section><!-- Products intro ends -->
+        <!-- Products cards -->
+        <section class="bg-color-grey-light">
+            <!-- Products cards wrap -->
+            <div class="products-cards-wrap main-wrap main-padding">
+
+            <!-- Products cards container -->
+            <div class="products-cards-container main-container"
+                 tal:define="items python:view.products()">
+
+                    <tal:row tal:repeat="item items">
+
+                        <metal:macro use-macro="context/product_utils/macros/card"/>
+
+                    </tal:row>
+
+            </div><!-- Products cards container ends -->
+
+            </div><!-- Products cards wrap ends -->
+        </section><!-- Products cards ends -->
+        </div><!-- Page content ends -->
+    </metal:main>
+</body>
+</html>

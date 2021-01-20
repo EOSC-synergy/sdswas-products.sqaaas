@@ -1,0 +1,27 @@
+<model xmlns:i18n="http://xml.zope.org/namespaces/i18n" xmlns:marshal="http://namespaces.plone.org/supermodel/marshal" xmlns:form="http://namespaces.plone.org/supermodel/form" xmlns:security="http://namespaces.plone.org/supermodel/security" xmlns:users="http://namespaces.plone.org/supermodel/users" xmlns:lingua="http://namespaces.plone.org/supermodel/lingua" xmlns="http://namespaces.plone.org/supermodel/schema">
+  <schema>
+    <field name="image" type="plone.namedfile.field.NamedBlobImage">
+      <description/>
+      <title>Image</title>
+    </field>
+    <field name="iframe_url" type="zope.schema.URI">
+      <description/>
+      <title>iFrame URL</title>
+    </field>
+    <field name="data_policy" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>Data policy</title>
+    </field>
+    <field name="references" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>References</title>
+    </field>
+    <field name="documentation" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>Documentation</title>
+    </field>
+  </schema>
+</model>

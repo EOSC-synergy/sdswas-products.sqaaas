@@ -1,0 +1,65 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="sdswas.products"
+ >
+<metal:row define-macro="card" i18n:domain="sdswas.products">
+
+     <div class="relpro-card">
+
+          <a class="relpro-card-thumb"
+               tal:attributes="href item/absolute_url"
+               target="_self">
+               <img tal:attributes="src string:${item/absolute_url}/@@download/image/;">
+          </a>
+
+          <div class="relpro-card-content">
+
+               <h3><a class="relpro-card-title"
+                    tal:attributes="href item/absolute_url"
+                    target="_self"
+                    tal:content="item/title">
+               </a></h3>
+
+               <div class="relpro-card-description">
+                    <p tal:content="item/description"/>
+               </div>
+
+               <a class="relpro-card-text-link"
+                    tal:attributes="href item/absolute_url"
+                    target="_self">
+               <span>Explore product</span>
+               </a>
+          </div>
+
+     </div><!-- Related product card ends -->
+</metal:row>
+
+<metal:row define-macro="banner_card" i18n:domain="sdswas.products">
+
+     <div class="home-dupro-card">
+
+          <a class="home-dupro-card-thumb"
+               tal:attributes="href item/absolute_url" target="_self">
+               <img tal:attributes="src string:${item/absolute_url}/@@download/image/;"/>
+          </a>
+
+          <div class="home-dupro-card-content">
+
+               <a class="home-dupro-card-small-info"
+                    tal:attributes="href item/absolute_url" target="_self">
+                    <p tal:content="item/title"/>
+               </a>
+
+               <div class="home-dupro-card-description">
+                      <p tal:content="item/description"/>
+               </div>
+
+               <a class="home-dupro-text-link" tal:attributes="href item/absolute_url" target="_self">
+                    <p>Explore product</p>
+               </a>
+          </div>
+     </div>
+</metal:row>

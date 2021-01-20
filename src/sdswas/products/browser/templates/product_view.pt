@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="sdswas.products">
+<body>
+    <metal:main fill-slot="main">
+    <section class="banner-top bg-color-white">
+        <div class="banner-top-wrap main-wrap main-padding">
+            <div class="banner-top-container main-container">
+                <div class="page-title">
+                    <h1 tal:content="context/title"/>
+                </div>
+            </div>
+        </div>
+    </section>
+      <!-- Breadcrums -->
+      <section class="bg-color-white">
+        <div class="breadcrums-wrap main-wrap main-padding">
+          <div class="breadcrum-container main-container">
+            <a class="breadcrum-text-link" href="/products" target="_self">
+              <span>&#60; Back to Products</span>
+            </a>
+          </div>
+        </div>
+      </section><!-- Breadcrums ends -->
+      <!-- Product placeholder -->
+      <section class="bg-color-white">
+        <div class="main-wrap main-padding">
+          <div class="main-container">
+            <div class="product-placeholder">
+                <iframe scrolling="no" height="100%"
+                    tal:attributes="src context/iframe_url; "
+                    width="100%"></iframe>
+            </div>
+          </div>
+        </div>
+      </section><!-- Product placeholder ends -->
+      <!-- Product info -->
+      <section class="bg-color-white"
+                tal:define = "has_data_policy context/data_policy;
+                                has_references context/references;
+                                has_documentation context/documentation"
+                tal:condition="python: has_data_policy or has_references or  has_documentation ">
+        <!-- Product info wrap -->
+        <div class="product-info-wrap main-wrap main-padding">
+
+          <!-- Product info container -->
+          <div class="product-info-container main-container">
+
+            <!-- Product info header -->
+            <div class="product-info-header">
+
+              <!-- Info btn -->
+              <a id="data-policy" class="product-info-menu-btn -selected"  tal:condition="context/data_policy">
+                <span>Data Policy</span>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
+
+              <!-- Info btn -->
+              <a id="references" class="product-info-menu-btn"  tal:condition="context/references">
+                <span>References</span>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
+
+              <!-- Info btn -->
+              <a id="documentation" class="product-info-menu-btn" tal:condition="context/documentation">
+                <span>Documentation</span>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
+
+            </div><!-- Product info header ends -->
+
+            <!-- Product info panel -->
+            <div class="product-info-panel">
+              <!-- Product info -->
+              <div class="product-info" tal:condition="context/data_policy">
+                <h4>Data Policy</h4>
+                    <p tal:content="structure context/data_policy/output"/>
+              </div><!-- Product info ends -->
+
+              <!-- Product info -->
+              <div class="product-info hide" tal:condition="context/references">
+                <h4>References</h4>
+                    <p tal:content="structure context/references/output"/>
+              </div><!-- Product info ends -->
+
+              <!-- Product info -->
+              <div class="product-info hide" tal:condition="context/documentation">
+                <h4>Documentation</h4>
+                    <p tal:content="structure context/documentation/output"/>
+              </div><!-- Product info ends -->
+
+            </div><!-- Product info panel ends -->
+
+
+          </div><!-- Product info container ends -->
+        </div><!-- Product info wrap ends -->
+      </section><!-- Product info ends -->
+
+      <div tal:replace="structure context/product_relateditems">
+
+    </metal:main>
+</html>
