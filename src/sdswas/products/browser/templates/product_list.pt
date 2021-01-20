@@ -52,7 +52,7 @@
 
                 <!-- Products intro image -->
                 <div class="products-intro-image">
-                <img src="img/img-dummie-dust-storm.jpg" alt="">
+                    <img src="img/img-dummie-dust-storm.jpg" alt="">
                 </div><!-- Products intro image ends -->
 
             </div><!-- Products intro container ends -->
