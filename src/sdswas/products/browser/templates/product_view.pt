@@ -20,7 +20,7 @@
       <section class="bg-color-white">
         <div class="breadcrums-wrap main-wrap main-padding">
           <div class="breadcrum-container main-container">
-            <a class="breadcrum-text-link" href="/products" target="_self">
+            <a class="breadcrum-text-link" tal:attributes="href string:${context/portal_url}/products" target="_self">
               <span>&#60; Back to Products</span>
             </a>
           </div>
