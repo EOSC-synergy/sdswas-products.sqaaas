@@ -8,7 +8,7 @@
 <body>
     <metal:main fill-slot="main">
     <section class="banner-top bg-color-white">
-        <div class="banner-top-wrap main-wrap main-padding">
+        <div class="banner-top-wrap main-wrap main-padding main-padding-tb">
             <div class="banner-top-container main-container">
                 <div class="page-title">
                     <h1 tal:content="context/title"/>
@@ -18,7 +18,7 @@
     </section>
       <!-- Breadcrums -->
       <section class="bg-color-white">
-        <div class="breadcrums-wrap main-wrap main-padding">
+        <div class="breadcrums-wrap main-wrap main-padding main-padding-tb">
           <div class="breadcrum-container main-container">
             <a class="breadcrum-text-link" tal:attributes="href string:${context/portal_url}/products" target="_self">
               <span>&#60; Back to Products</span>
@@ -28,7 +28,7 @@
       </section><!-- Breadcrums ends -->
       <!-- Product placeholder -->
       <section class="bg-color-white">
-        <div class="main-wrap main-padding">
+        <div class="main-wrap main-padding main-padding-tb">
           <div class="main-container">
             <div class="product-placeholder">
                 <iframe scrolling="no" height="100%"
@@ -45,55 +45,160 @@
                                 has_documentation context/documentation"
                 tal:condition="python: has_data_policy or has_references or  has_documentation ">
         <!-- Product info wrap -->
-        <div class="product-info-wrap main-wrap main-padding">
+        <div class="prod-info-wrap main-wrap main-padding main-padding-tb">
 
           <!-- Product info container -->
-          <div class="product-info-container main-container">
+          <div class="prod-info-container main-container">
 
-            <!-- Product info header -->
-            <div class="product-info-header">
+            <!-- Product info menu -->
+            <div class="prod-info-menu">
 
-              <!-- Info btn -->
-              <a id="data-policy" class="product-info-menu-btn -selected"  tal:condition="context/data_policy">
-                <span>Data Policy</span>
-                <div class="btn-indicator"></div>
-              </a><!-- Info btn ends -->
+              <!-- Product info mobile menu -->
+              <div class="prod-info-menu-mobile">
 
-              <!-- Info btn -->
-              <a id="references" class="product-info-menu-btn"  tal:condition="context/references">
-                <span>References</span>
-                <div class="btn-indicator"></div>
-              </a><!-- Info btn ends -->
+                <!-- Product info btn with submenu -->
+                <div class="prod-info-btns-container-mobile">
 
-              <!-- Info btn -->
-              <a id="documentation" class="product-info-menu-btn" tal:condition="context/documentation">
-                <span>Documentation</span>
-                <div class="btn-indicator"></div>
-              </a><!-- Info btn ends -->
+                  <a id="main-prod-info-mbl-btn" class="main-prod-info-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
+                    <div class="btn-g">
+                      <p class="btn-text">Data Policy</p>
+                      <i class="btn-icon icon-sort-down"></i>
+                    </div>
+                  </a>
 
-            </div><!-- Product info header ends -->
+                  <!--  Product info submenu -->
+                  <ul class="prod-info-submenu-mobile">
+
+                    <li class="prod-info-submenu-mbl-btn-container">
+                      <a class="prod-info-submenu-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
+                        <div class="btn-g">
+                          <p>Data Policy</p>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="prod-info-submenu-mbl-btn-container">
+                      <a class="prod-info-submenu-mbl-btn" data-value="references" tal:condition="context/references">
+                        <div class="btn-g">
+                          <p>References</p>
+                        </div>
+                      </a>
+                    </li>
+
+                    <li class="prod-info-submenu-mbl-btn-container">
+                      <a class="prod-info-submenu-mbl-btn" data-value="documentation" tal:condition="context/documentation">
+                        <div class="btn-g">
+                          <p>Documentation</p>
+                        </div>
+                      </a>
+                    </li>
+
+                  </ul> <!-- Product info Submenu ends -->
+
+                </div> <!-- Product info btn with submenu ends -->
+
+              </div>
+              <!-- Product info mobile menu ends -->
+
+              <!-- Product info desktop menu -->
+              <div class="prod-info-menu-desktop">
+
+                <!-- Info btn -->
+                <a id="data-policy" class="prod-info-desktop-btn -selected" data-value="data-policy"  tal:condition="context/data_policy">
+                  <p>Data Policy</p>
+                  <div class="btn-indicator"></div>
+                </a><!-- Info btn ends -->
+
+                <!-- Info btn -->
+                <a id="references" class="prod-info-desktop-btn" data-value="references" tal:condition="context/references">
+                  <p>References</p>
+                  <div class="btn-indicator"></div>
+                </a><!-- Info btn ends -->
+
+                <!-- Info btn -->
+                <a id="documentation" class="prod-info-desktop-btn" data-value="documentation" tal:condition="context/documentation">
+                  <p>Documentation</p>
+                  <div class="btn-indicator"></div>
+                </a><!-- Info btn ends -->
+
+              </div>
+              <!-- Product info desktop menu ends -->
+
+            </div><!-- Product info menu ends -->
 
             <!-- Product info panel -->
-            <div class="product-info-panel">
+            <div class="prod-info-panel">
+
               <!-- Product info -->
-              <div class="product-info" tal:condition="context/data_policy">
+              <div class="prod-info" data-value="data-policy">
                 <h4>Data Policy</h4>
-                    <p tal:content="structure context/data_policy/output"/>
+                <p>
+                  1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                  7. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
+                  <br>
+                  <br>
+                </p>
               </div><!-- Product info ends -->
 
               <!-- Product info -->
-              <div class="product-info hide" tal:condition="context/references">
+              <div class="prod-info" data-value="references">
                 <h4>References</h4>
-                    <p tal:content="structure context/references/output"/>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
+                  impedit
+                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
+                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
+                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
+                  <br>
+                  <br>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
+                  impedit
+                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
+                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
+                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
+                  <br>
+                  <br>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
+                  impedit
+                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
+                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
+                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
+                </p>
               </div><!-- Product info ends -->
 
               <!-- Product info -->
-              <div class="product-info hide" tal:condition="context/documentation">
+              <div class="prod-info" data-value="documentation">
                 <h4>Documentation</h4>
-                    <p tal:content="structure context/documentation/output"/>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
+                  impedit
+                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
+                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
+                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
+                </p>
               </div><!-- Product info ends -->
+
+
 
             </div><!-- Product info panel ends -->
+
 
 
           </div><!-- Product info container ends -->
