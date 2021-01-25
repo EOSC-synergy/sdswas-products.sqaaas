@@ -42,7 +42,8 @@
 
                 <!-- Cta -->
                 <div class="flex-container">
-                    <a class="products-intro-cta outlined-cta" href="#" target="_self">
+                    <a class="products-intro-cta outlined-cta" target="_self"
+                        tal:attributes="href string:${context/absolute_url}/products/user-guide">
                     <p>User guide</p>
                     <i class="icon-download"></i>
                     </a><!-- Cta ends -->
