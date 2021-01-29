@@ -12,10 +12,7 @@
                 <h2 class="home-dupro-main-title">Dust Products</h2>
 
                 <p class="home-dupro-main-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-                numquam veniam ducimus adipisci obcaecati nemo voluptas, architecto culpa voluptatibus ipsa!
-                </p>
-
+                    The Barcelona Dust Regional Center offers a wide range of dust products that serve the need for detailed dust information on a regional scale.</p>
                 <a class="home-dupro-main-cta"
                     tal:attributes="href string:${context/portal_url}/products"  target="_self">
                     <p>Learn more</p>
