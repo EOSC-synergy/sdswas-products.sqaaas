@@ -34,6 +34,12 @@
                 <iframe scrolling="no" height="100%"
                     tal:attributes="src context/iframe_url; "
                     width="100%"></iframe>
+
+                    <!-- Switch to desktop message -->
+              <div class="switch-to-desktop-message-container">
+                <p>Switch to a desktop device in order to preview this item correctly.</p>
+              </div><!-- Switch to desktop message ends -->
+
             </div>
           </div>
         </div>
