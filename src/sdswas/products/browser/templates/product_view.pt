@@ -32,7 +32,9 @@
           <div class="main-container">
             <div class="product-placeholder">
                 <iframe scrolling="no" height="100%"
-                    tal:attributes="src context/iframe_url; "
+                    tal:attributes="src context/iframe_url;
+                        allowfullscreen python:True;
+                        frameborder string:0"
                     width="100%"></iframe>
 
                     <!-- Switch to desktop message -->
