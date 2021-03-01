@@ -30,15 +30,16 @@
                 <div class="products-intro-text">
                 <h2>Overview</h2>
 
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque quisquam delectus laborum quidem
-                    suscipit odio consequatur similique eos? Quidem blanditiis, quam itaque atque quibusdam,
-                    corrupti
-                    sint magni quis dolorum maxime maiores recusandae cumque fugit. Repellendus, accusamus. Nam
-                    repudiandae distinctio, eos temporibus voluptatum cupiditate perferendis? Dolores, at neque
-                    dolorum
-                    commodi expedita eveniet dignissimos minus quo corrupti nesciunt impedit temporibus velit fugit
-                    sed
-                </p>
+                <p>The Barcelona Dust Regional Center provides access to high-quality dust
+                information for the benefit of society. This information is useful to predict
+                 the occurrence of Sand and Dust Storms (SDS), as well as, to manage their
+                 effects and impacts. In this context, the Center offers a wide range of dust
+                 products, both models and observations, that serve the need for detailed dust
+                 information on a regional scale. </p>
+
+                <br/>
+                <p>A detailed description of all the products offered on the Center´s website
+                can be found in the User´s Guide. </p>
 
                 <!-- Cta -->
                 <div class="flex-container">
