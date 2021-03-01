@@ -135,79 +135,30 @@
             </div><!-- Product info menu ends -->
 
             <!-- Product info panel -->
-            <div class="prod-info-panel">
+            <div class="prod-info-panel"
+              tal:define="documentation context/documentation;
+                          references context/references;
+                          data_policy context/data_policy;">
 
               <!-- Product info -->
-              <div class="prod-info" data-value="data-policy">
+              <div class="prod-info" data-value="data-policy" tal:condition="nocall:data_policy">
                 <h4>Data Policy</h4>
-                <p>
-                  1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  4. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  5. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  6. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                  7. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, voluptas?
-                  <br>
-                  <br>
-                </p>
+                <p tal:content="structure data_policy/output"></p>
               </div><!-- Product info ends -->
 
               <!-- Product info -->
-              <div class="prod-info" data-value="references">
+              <div class="prod-info" data-value="references" tal:condition="nocall:references">
                 <h4>References</h4>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
-                  impedit
-                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
-                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
-                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
-                  <br>
-                  <br>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
-                  impedit
-                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
-                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
-                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
-                  <br>
-                  <br>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
-                  impedit
-                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
-                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
-                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
-                </p>
+                <p tal:content="structure references/output"></p>
               </div><!-- Product info ends -->
 
               <!-- Product info -->
-              <div class="prod-info" data-value="documentation">
+              <div class="prod-info" data-value="documentation" tal:condition="nocall:documentation">
                 <h4>Documentation</h4>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae fugit, delectus architecto
-                  impedit
-                  voluptate officiis temporibus possimus hic. Nihil consectetur magnam id eveniet in molestias
-                  fugit minima dolorem quas consequatur ducimus vitae, earum nesciunt voluptatum sit quis unde ut!
-                  Reprehenderit esse quas, laboriosam tempora repellendus ipsum distinctio cum sunt accusamus?
-                </p>
+                <p tal:content="structure documentation/output"></p>
               </div><!-- Product info ends -->
-
-
 
             </div><!-- Product info panel ends -->
-
-
 
           </div><!-- Product info container ends -->
         </div><!-- Product info wrap ends -->
