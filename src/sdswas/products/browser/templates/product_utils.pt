@@ -7,27 +7,27 @@
  >
 <metal:row define-macro="card" i18n:domain="sdswas.products">
 
-     <div class="relpro-card">
+     <div class="product-card">
 
-          <a class="relpro-card-thumb"
+          <a class="product-card-thumb"
                tal:attributes="href item/absolute_url"
                target="_self">
                <img tal:attributes="src string:${item/absolute_url}/@@download/image/;">
           </a>
 
-          <div class="relpro-card-content">
+          <div class="product-card-content">
 
-               <h3><a class="relpro-card-title"
+               <a class="product-card-title"
                     tal:attributes="href item/absolute_url"
-                    target="_self"
-                    tal:content="item/title">
-               </a></h3>
+                    target="_self">
+                         <h3 tal:content="item/title"/>
+               </a>
 
-               <div class="relpro-card-description">
+               <div class="product-card-description">
                     <p tal:content="item/description"/>
                </div>
 
-               <a class="relpro-card-text-link"
+               <a class="product-card-text-link"
                     tal:attributes="href item/absolute_url"
                     target="_self">
                <span>Explore product</span>
