@@ -27,7 +27,7 @@
             <div class="products-intro-container main-container">
 
                 <!-- Products intro text -->
-                <div class="products-intro-text">
+                <div class="products-intro-text p-margin-bottom">
                 <h2>Overview</h2>
 
                 <p>The Barcelona Dust Regional Center provides access to high-quality dust
@@ -37,7 +37,6 @@
                  products, both models and observations, that serve the need for detailed dust
                  information on a regional scale. </p>
 
-                <br/>
                 <p>A detailed description of all the products offered on the Center´s website
                 can be found in the User´s Guide. </p>
 
