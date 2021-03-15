@@ -78,6 +78,12 @@
 
             </div><!-- Products cards wrap ends -->
         </section><!-- Products cards ends -->
+
+        <!-- Subscribe form section -->
+        <section class="subscribe-widget bg-color-grey-light">
+            <div tal:replace="structure context/subscribeform_banner">
+        </section>
+        <!-- Subscribe form section ends-->
         </div><!-- Page content ends -->
     </metal:main>
 </body>
