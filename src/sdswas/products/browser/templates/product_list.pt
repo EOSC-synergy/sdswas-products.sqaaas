@@ -30,15 +30,7 @@
                 <div class="products-intro-text p-margin-bottom">
                 <h2>Overview</h2>
 
-                <p>The Barcelona Dust Regional Center provides access to high-quality dust
-                information for the benefit of society. This information is useful to predict
-                 the occurrence of Sand and Dust Storms (SDS), as well as, to manage their
-                 effects and impacts. In this context, the Center offers a wide range of dust
-                 products, both models and observations, that serve the need for detailed dust
-                 information on a regional scale. </p>
-
-                <p>A detailed description of all the products offered on the Center´s website
-                can be found in the User´s Guide. </p>
+                <tal tal:content="structure context/text/raw"/>
 
                 <!-- Cta -->
                 <div class="flex-container">
