@@ -27,10 +27,10 @@
             <div class="products-intro-container main-container">
 
                 <!-- Products intro text -->
-                <div class="products-intro-text p-margin-bottom">
+                <div class="products-intro-text">
                 <h2>Overview</h2>
 
-                <tal tal:content="structure context/text/raw"/>
+                <p class=" p-margin-bottom" tal:content="structure context/text/raw"/>
 
                 <!-- Cta -->
                 <div class="flex-container">
