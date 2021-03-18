@@ -27,7 +27,7 @@
                     <p tal:content="item/description"/>
                </div>
 
-               <a class="product-card-text-link"
+               <a class="product-text-link"
                     tal:attributes="href item/absolute_url"
                     target="_self">
                <span>Explore product</span>
