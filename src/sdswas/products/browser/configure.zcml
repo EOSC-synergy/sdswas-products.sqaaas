@@ -64,5 +64,10 @@
     permission="zope2.View"
 />
 
+  <!-- Resource directory -->
+
+   <browser:resourceDirectory
+      name="sdswas.products"
+      directory="static" />
 
 </configure>

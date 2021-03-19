@@ -6,77 +6,83 @@
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="sdswas.products">
 <body>
-    <metal:main fill-slot="main"><!-- Page content -->
-        <div class="page-content">
-        <!-- Banner top -->
-        <section class="banner-top bg-color-white">
-            <div class="banner-top-wrap main-wrap main-padding">
-            <div class="banner-top-container main-container">
-                <div class="page-title">
-                <h1>Products</h1>
-                </div>
+
+<metal:javascriptslot fill-slot="javascript_head_slot">
+    <script type="text/javascript" tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/products.js"/>
+</metal:javascriptslot>
+
+<metal:main fill-slot="main"><!-- Page content -->
+    <div class="page-content">
+    <!-- Banner top -->
+    <section class="banner-top bg-color-white">
+        <div class="banner-top-wrap main-wrap main-padding">
+        <div class="banner-top-container main-container">
+            <div class="page-title">
+            <h1>Products</h1>
             </div>
+        </div>
+        </div>
+    </section>
+    <!-- Banner top ends -->
+    <!-- Products intro -->
+    <section class="bg-color-white">
+        <!-- Products intro wrap -->
+        <div class="products-intro-wrap main-wrap main-padding">
+        <!-- Products intro container -->
+        <div class="products-intro-container main-container">
+
+            <!-- Products intro text -->
+            <div class="products-intro-text">
+            <h2>Overview</h2>
+
+            <p class=" p-margin-bottom" tal:content="structure context/text/raw"/>
+
+            <!-- Cta -->
+            <div class="flex-container">
+                <a class="products-intro-cta outlined-cta" target="_self"
+                    tal:attributes="href string:${context/absolute_url}/user-guide/@@download">
+                <p>User guide</p>
+                <i class="icon-download"></i>
+                </a><!-- Cta ends -->
             </div>
-        </section>
-        <!-- Banner top ends -->
-        <!-- Products intro -->
-        <section class="bg-color-white">
-            <!-- Products intro wrap -->
-            <div class="products-intro-wrap main-wrap main-padding">
-            <!-- Products intro container -->
-            <div class="products-intro-container main-container">
 
-                <!-- Products intro text -->
-                <div class="products-intro-text">
-                <h2>Overview</h2>
+            </div><!-- Products intro text ends -->
 
-                <p class=" p-margin-bottom" tal:content="structure context/text/raw"/>
+            <!-- Products intro image -->
+            <div class="products-intro-image">
+                <img src="++theme++sdswas/img/img-dummie-dust-storm.jpg" alt="">
+            </div><!-- Products intro image ends -->
 
-                <!-- Cta -->
-                <div class="flex-container">
-                    <a class="products-intro-cta outlined-cta" target="_self"
-                        tal:attributes="href string:${context/absolute_url}/user-guide/@@download">
-                    <p>User guide</p>
-                    <i class="icon-download"></i>
-                    </a><!-- Cta ends -->
-                </div>
+        </div><!-- Products intro container ends -->
+        </div><!-- Products intro wrap ends -->
+    </section><!-- Products intro ends -->
+    <!-- Products cards -->
+    <section class="bg-color-grey-light">
+        <!-- Products cards wrap -->
+        <div class="products-cards-wrap main-wrap main-padding">
 
-                </div><!-- Products intro text ends -->
+        <!-- Products cards container -->
+        <div class="products-cards-container main-container"
+                tal:define="items python:view.products()">
 
-                <!-- Products intro image -->
-                <div class="products-intro-image">
-                    <img src="++theme++sdswas/img/img-dummie-dust-storm.jpg" alt="">
-                </div><!-- Products intro image ends -->
+                <tal:row tal:repeat="item items">
 
-            </div><!-- Products intro container ends -->
-            </div><!-- Products intro wrap ends -->
-        </section><!-- Products intro ends -->
-        <!-- Products cards -->
-        <section class="bg-color-grey-light">
-            <!-- Products cards wrap -->
-            <div class="products-cards-wrap main-wrap main-padding">
+                    <metal:macro use-macro="context/product_utils/macros/card"/>
 
-            <!-- Products cards container -->
-            <div class="products-cards-container main-container"
-                 tal:define="items python:view.products()">
+                </tal:row>
 
-                    <tal:row tal:repeat="item items">
+        </div><!-- Products cards container ends -->
 
-                        <metal:macro use-macro="context/product_utils/macros/card"/>
+        </div><!-- Products cards wrap ends -->
+    </section><!-- Products cards ends -->
 
-                    </tal:row>
-
-            </div><!-- Products cards container ends -->
-
-            </div><!-- Products cards wrap ends -->
-        </section><!-- Products cards ends -->
-
-        <!-- Subscribe form section -->
-        <section class="subscribe-widget bg-color-grey-light">
-            <div tal:replace="structure context/subscribeform_banner">
-        </section>
-        <!-- Subscribe form section ends-->
-        </div><!-- Page content ends -->
-    </metal:main>
+    <!-- Subscribe form section -->
+    <section class="subscribe-widget bg-color-grey-light">
+        <div tal:replace="structure context/subscribeform_banner">
+    </section>
+    <!-- Subscribe form section ends-->
+    </div><!-- Page content ends -->
+</metal:main>
 </body>
 </html>
