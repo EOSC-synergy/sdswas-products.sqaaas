@@ -6,165 +6,173 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="sdswas.products">
 <body>
-    <metal:main fill-slot="main">
-    <section class="banner-top bg-color-white">
-        <div class="banner-top-wrap main-wrap main-padding">
-            <div class="banner-top-container main-container">
-                <div class="page-title">
-                    <h1 tal:content="context/title"/>
-                </div>
-            </div>
+
+<metal:javascriptslot fill-slot="javascript_head_slot">
+    <script type="text/javascript" tal:define="navroot context/@@plone_portal_state/navigation_root_url"
+            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/product_view.js?bust=v1"/>
+</metal:javascriptslot>
+
+<metal:main fill-slot="main">
+
+  <section class="banner-top bg-color-white">
+      <div class="banner-top-wrap main-wrap main-padding">
+          <div class="banner-top-container main-container">
+              <div class="page-title">
+                  <h1 tal:content="context/title"/>
+              </div>
+          </div>
+      </div>
+  </section>
+    <!-- Breadcrums -->
+    <section class="bg-color-white">
+      <div class="breadcrums-wrap main-wrap main-padding main-padding-tb">
+        <div class="breadcrum-container main-container">
+          <a class="breadcrum-text-link" tal:attributes="href string:${context/portal_url}/products" target="_self">
+            <span>&#60; Back to Products</span>
+          </a>
         </div>
-    </section>
-      <!-- Breadcrums -->
-      <section class="bg-color-white">
-        <div class="breadcrums-wrap main-wrap main-padding main-padding-tb">
-          <div class="breadcrum-container main-container">
-            <a class="breadcrum-text-link" tal:attributes="href string:${context/portal_url}/products" target="_self">
-              <span>&#60; Back to Products</span>
-            </a>
+      </div>
+    </section><!-- Breadcrums ends -->
+    <!-- Product placeholder -->
+    <section class="bg-color-white">
+      <div class="main-wrap main-padding main-padding-tb">
+        <div class="main-container">
+          <div class="product-placeholder">
+              <iframe scrolling="no" height="100%"
+                  tal:attributes="src context/iframe_url;
+                      allowfullscreen python:True;
+                      frameborder string:0"
+                  width="100%"></iframe>
+
+                  <!-- Switch to desktop message -->
+            <div class="switch-to-desktop-message-container">
+              <p>Switch to a desktop device in order to preview this item correctly.</p>
+            </div><!-- Switch to desktop message ends -->
+
           </div>
         </div>
-      </section><!-- Breadcrums ends -->
-      <!-- Product placeholder -->
-      <section class="bg-color-white">
-        <div class="main-wrap main-padding main-padding-tb">
-          <div class="main-container">
-            <div class="product-placeholder">
-                <iframe scrolling="no" height="100%"
-                    tal:attributes="src context/iframe_url;
-                        allowfullscreen python:True;
-                        frameborder string:0"
-                    width="100%"></iframe>
+      </div>
+    </section><!-- Product placeholder ends -->
+    <!-- Product info -->
+    <section class="bg-color-white"
+              tal:define = "has_data_policy context/data_policy;
+                              has_references context/references;
+                              has_documentation context/documentation"
+              tal:condition="python: has_data_policy or has_references or  has_documentation ">
+      <!-- Product info wrap -->
+      <div class="prod-info-wrap main-wrap main-padding main-padding-tb">
 
-                    <!-- Switch to desktop message -->
-              <div class="switch-to-desktop-message-container">
-                <p>Switch to a desktop device in order to preview this item correctly.</p>
-              </div><!-- Switch to desktop message ends -->
+        <!-- Product info container -->
+        <div class="prod-info-container main-container">
+
+          <!-- Product info menu -->
+          <div class="prod-info-menu">
+
+            <!-- Product info mobile menu -->
+            <div class="prod-info-menu-mobile">
+
+              <!-- Product info btn with submenu -->
+              <div class="prod-info-btns-container-mobile">
+
+                <a id="main-prod-info-mbl-btn" class="main-prod-info-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
+                  <div class="btn-g">
+                    <p class="btn-text">Data Policy</p>
+                    <i class="btn-icon icon-sort-down"></i>
+                  </div>
+                </a>
+
+                <!--  Product info submenu -->
+                <ul class="prod-info-submenu-mobile">
+
+                  <li class="prod-info-submenu-mbl-btn-container">
+                    <a class="prod-info-submenu-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
+                      <div class="btn-g">
+                        <p>Data Policy</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="prod-info-submenu-mbl-btn-container">
+                    <a class="prod-info-submenu-mbl-btn" data-value="references" tal:condition="context/references">
+                      <div class="btn-g">
+                        <p>References</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li class="prod-info-submenu-mbl-btn-container">
+                    <a class="prod-info-submenu-mbl-btn" data-value="documentation" tal:condition="context/documentation">
+                      <div class="btn-g">
+                        <p>Documentation</p>
+                      </div>
+                    </a>
+                  </li>
+
+                </ul> <!-- Product info Submenu ends -->
+
+              </div> <!-- Product info btn with submenu ends -->
 
             </div>
-          </div>
-        </div>
-      </section><!-- Product placeholder ends -->
-      <!-- Product info -->
-      <section class="bg-color-white"
-                tal:define = "has_data_policy context/data_policy;
-                                has_references context/references;
-                                has_documentation context/documentation"
-                tal:condition="python: has_data_policy or has_references or  has_documentation ">
-        <!-- Product info wrap -->
-        <div class="prod-info-wrap main-wrap main-padding main-padding-tb">
+            <!-- Product info mobile menu ends -->
 
-          <!-- Product info container -->
-          <div class="prod-info-container main-container">
+            <!-- Product info desktop menu -->
+            <div class="prod-info-menu-desktop">
 
-            <!-- Product info menu -->
-            <div class="prod-info-menu">
+              <!-- Info btn -->
+              <a id="data-policy" class="prod-info-desktop-btn -selected" data-value="data-policy"  tal:condition="context/data_policy">
+                <p>Data Policy</p>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
 
-              <!-- Product info mobile menu -->
-              <div class="prod-info-menu-mobile">
+              <!-- Info btn -->
+              <a id="references" class="prod-info-desktop-btn" data-value="references" tal:condition="context/references">
+                <p>References</p>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
 
-                <!-- Product info btn with submenu -->
-                <div class="prod-info-btns-container-mobile">
+              <!-- Info btn -->
+              <a id="documentation" class="prod-info-desktop-btn" data-value="documentation" tal:condition="context/documentation">
+                <p>Documentation</p>
+                <div class="btn-indicator"></div>
+              </a><!-- Info btn ends -->
 
-                  <a id="main-prod-info-mbl-btn" class="main-prod-info-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
-                    <div class="btn-g">
-                      <p class="btn-text">Data Policy</p>
-                      <i class="btn-icon icon-sort-down"></i>
-                    </div>
-                  </a>
+            </div>
+            <!-- Product info desktop menu ends -->
 
-                  <!--  Product info submenu -->
-                  <ul class="prod-info-submenu-mobile">
+          </div><!-- Product info menu ends -->
 
-                    <li class="prod-info-submenu-mbl-btn-container">
-                      <a class="prod-info-submenu-mbl-btn" data-value="data-policy" tal:condition="context/data_policy">
-                        <div class="btn-g">
-                          <p>Data Policy</p>
-                        </div>
-                      </a>
-                    </li>
+          <!-- Product info panel -->
+          <div class="prod-info-panel"
+            tal:define="documentation context/documentation;
+                        references context/references;
+                        data_policy context/data_policy;">
 
-                    <li class="prod-info-submenu-mbl-btn-container">
-                      <a class="prod-info-submenu-mbl-btn" data-value="references" tal:condition="context/references">
-                        <div class="btn-g">
-                          <p>References</p>
-                        </div>
-                      </a>
-                    </li>
+            <!-- Product info -->
+            <div class="prod-info" data-value="data-policy" tal:condition="nocall:data_policy">
+              <h4>Data Policy</h4>
+              <p tal:content="structure data_policy/output"></p>
+            </div><!-- Product info ends -->
 
-                    <li class="prod-info-submenu-mbl-btn-container">
-                      <a class="prod-info-submenu-mbl-btn" data-value="documentation" tal:condition="context/documentation">
-                        <div class="btn-g">
-                          <p>Documentation</p>
-                        </div>
-                      </a>
-                    </li>
+            <!-- Product info -->
+            <div class="prod-info" data-value="references" tal:condition="nocall:references">
+              <h4>References</h4>
+              <p tal:content="structure references/output"></p>
+            </div><!-- Product info ends -->
 
-                  </ul> <!-- Product info Submenu ends -->
+            <!-- Product info -->
+            <div class="prod-info" data-value="documentation" tal:condition="nocall:documentation">
+              <h4>Documentation</h4>
+              <p tal:content="structure documentation/output"></p>
+            </div><!-- Product info ends -->
 
-                </div> <!-- Product info btn with submenu ends -->
+          </div><!-- Product info panel ends -->
 
-              </div>
-              <!-- Product info mobile menu ends -->
+        </div><!-- Product info container ends -->
+      </div><!-- Product info wrap ends -->
+    </section><!-- Product info ends -->
 
-              <!-- Product info desktop menu -->
-              <div class="prod-info-menu-desktop">
+    <div tal:replace="structure context/product_relateditems">
 
-                <!-- Info btn -->
-                <a id="data-policy" class="prod-info-desktop-btn -selected" data-value="data-policy"  tal:condition="context/data_policy">
-                  <p>Data Policy</p>
-                  <div class="btn-indicator"></div>
-                </a><!-- Info btn ends -->
-
-                <!-- Info btn -->
-                <a id="references" class="prod-info-desktop-btn" data-value="references" tal:condition="context/references">
-                  <p>References</p>
-                  <div class="btn-indicator"></div>
-                </a><!-- Info btn ends -->
-
-                <!-- Info btn -->
-                <a id="documentation" class="prod-info-desktop-btn" data-value="documentation" tal:condition="context/documentation">
-                  <p>Documentation</p>
-                  <div class="btn-indicator"></div>
-                </a><!-- Info btn ends -->
-
-              </div>
-              <!-- Product info desktop menu ends -->
-
-            </div><!-- Product info menu ends -->
-
-            <!-- Product info panel -->
-            <div class="prod-info-panel"
-              tal:define="documentation context/documentation;
-                          references context/references;
-                          data_policy context/data_policy;">
-
-              <!-- Product info -->
-              <div class="prod-info" data-value="data-policy" tal:condition="nocall:data_policy">
-                <h4>Data Policy</h4>
-                <p tal:content="structure data_policy/output"></p>
-              </div><!-- Product info ends -->
-
-              <!-- Product info -->
-              <div class="prod-info" data-value="references" tal:condition="nocall:references">
-                <h4>References</h4>
-                <p tal:content="structure references/output"></p>
-              </div><!-- Product info ends -->
-
-              <!-- Product info -->
-              <div class="prod-info" data-value="documentation" tal:condition="nocall:documentation">
-                <h4>Documentation</h4>
-                <p tal:content="structure documentation/output"></p>
-              </div><!-- Product info ends -->
-
-            </div><!-- Product info panel ends -->
-
-          </div><!-- Product info container ends -->
-        </div><!-- Product info wrap ends -->
-      </section><!-- Product info ends -->
-
-      <div tal:replace="structure context/product_relateditems">
-
-    </metal:main>
+    <div tal:replace="structure context/login_modal">
+</metal:main>
 </html>
