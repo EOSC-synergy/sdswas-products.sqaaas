@@ -64,7 +64,7 @@
 
         <!-- Products cards container -->
         <div class="products-cards-container main-container"
-                tal:define="items python:view.products()">
+                tal:define="items python:view.get_products()">
 
                 <tal:row tal:repeat="item items">
 
@@ -79,7 +79,7 @@
 
     <!-- Subscribe form section -->
     <section class="subscribe-widget bg-color-grey-light">
-        <div tal:replace="structure context/subscribeform_banner">
+        <div metal:use-macro="context/subscribeform/macros/banner" />
     </section>
     <!-- Subscribe form section ends-->
     </div><!-- Page content ends -->

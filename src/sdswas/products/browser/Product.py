@@ -3,6 +3,7 @@ from plone.app.contenttypes.browser.folder import FolderView
 from plone import api
 from plone.app.relationfield.behavior import IRelatedItems
 from Acquisition import aq_parent
+from sdswas.customViews.browser.NewsletterForm import NewsletterForm
 
 class Product(FolderView):
 
@@ -12,7 +13,7 @@ class Product(FolderView):
         self.request.set('disable_plone.rightcolumn',1)
         self.request.set('disable_plone.leftcolumn',1)
 
-    def products(self):
+    def get_products(self):
 
         brains = self.context.portal_catalog(
             portal_type=["product"],
@@ -53,3 +54,6 @@ class Product(FolderView):
                 })
 
         return results
+
+    def subscribe_link(self):
+       return NewsletterForm.subscribe_link(self)
