@@ -1,6 +1,6 @@
 <!-- Homepage dust products -->
 <section id="products-banner" class="bg-color-seaweed-dark"
-        tal:define="items python:view.products()">
+        tal:define="items view/get_products">
 
     <div class="main-wrap main-padding main-padding-tb">
 
