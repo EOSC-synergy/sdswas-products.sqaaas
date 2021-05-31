@@ -95,7 +95,7 @@
                   <li class="prod-info-submenu-mbl-btn-container">
                     <a class="prod-info-submenu-mbl-btn" data-value="references" tal:condition="context/references">
                       <div class="btn-g">
-                        <p>References</p>
+                        <p>Contact</p>
                       </div>
                     </a>
                   </li>
@@ -126,7 +126,7 @@
 
               <!-- Info btn -->
               <a id="references" class="prod-info-desktop-btn" data-value="references" tal:condition="context/references">
-                <p>References</p>
+                <p>Contact</p>
                 <div class="btn-indicator"></div>
               </a><!-- Info btn ends -->
 
@@ -155,7 +155,7 @@
 
             <!-- Product info -->
             <div class="prod-info" data-value="references" tal:condition="nocall:references">
-              <h4>References</h4>
+              <h4>Contact</h4>
               <p tal:content="structure references/output"></p>
             </div><!-- Product info ends -->
 
