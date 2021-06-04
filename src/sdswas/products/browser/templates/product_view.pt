@@ -12,7 +12,8 @@
             tal:attributes="src string:${navroot}/++resource++sdswas.products/js/product_view.js?bust=v1"/>
 </metal:javascriptslot>
 
-<metal:main fill-slot="main">
+<metal:main fill-slot="main"
+  tal:define="iframe_url context/iframe_url">
 
   <section class="banner-top bg-color-white">
       <div class="banner-top-wrap main-wrap main-padding">
@@ -33,11 +34,18 @@
         </div>
       </div>
     </section><!-- Breadcrums ends -->
+
+
     <!-- Product placeholder -->
     <section class="bg-color-white">
       <div class="main-wrap main-padding main-padding-tb">
         <div class="main-container">
-          <div class="product-placeholder">
+            <img tal:condition="python:not iframe_url"
+                tal:define="image_url string:${context/absolute_url}/@@images/image;
+                            inline_style string: width:100%"
+                tal:attributes="src image_url; alt context/title;style inline_style">
+            </img>
+            <div class="product-placeholder" tal:condition="iframe_url">
               <iframe scrolling="no" height="100%"
                   tal:attributes="src context/iframe_url;
                       allowfullscreen python:True;
@@ -45,20 +53,47 @@
                   width="100%"></iframe>
 
                   <!-- Switch to desktop message -->
-            <div class="switch-to-desktop-message-container">
-              <p>Switch to a desktop device in order to preview this item correctly.</p>
-            </div><!-- Switch to desktop message ends -->
-
+              <div class="switch-to-desktop-message-container" >
+                <p>Switch to a desktop device in order to preview this item correctly.</p>
+              </div><!-- Switch to desktop message ends -->
           </div>
         </div>
       </div>
     </section><!-- Product placeholder ends -->
-    <!-- Product info -->
+
+    <!-- Product info for snapshot-->
+     <section class="bg-color-white"
+              tal:define="description nocall:context/description"
+              tal:condition="python:description and not iframe_url ">
+
+      <!-- Product info wrap -->
+      <div class="prod-info-wrap main-wrap main-padding main-padding-tb">
+
+        <!-- Product info container -->
+        <div class="prod-info-container main-container">
+
+          <!-- Product info panel -->
+          <div class="prod-info-panel">
+
+            <!-- Product info -->
+            <div class="prod-info" tal:condition="nocall:description">
+              <p tal:content="description" >
+            </div><!-- Product info ends -->
+
+          </div><!--  Product info panel ends-->
+
+        </div><!--  Product info container ends-->
+
+      </div><!--  Product info wrap ends-->
+
+    </section> <!-- Product info for snapshot ends-->
+
+    <!-- Product info for iframe-->
     <section class="bg-color-white"
               tal:define = "has_data_policy context/data_policy;
                               has_references context/references;
                               has_documentation context/documentation"
-              tal:condition="python: has_data_policy or has_references or  has_documentation ">
+              tal:condition="python: iframe_url and (has_data_policy or has_references or  has_documentation )">
       <!-- Product info wrap -->
       <div class="prod-info-wrap main-wrap main-padding main-padding-tb">
 
@@ -66,7 +101,7 @@
         <div class="prod-info-container main-container">
 
           <!-- Product info menu -->
-          <div class="prod-info-menu">
+          <div class="prod-info-menu" tal:condition="iframe_url">
 
             <!-- Product info mobile menu -->
             <div class="prod-info-menu-mobile">
