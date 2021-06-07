@@ -4,7 +4,7 @@ from plone import api
 from plone.app.relationfield.behavior import IRelatedItems
 from Acquisition import aq_parent
 from sdswas.customViews.browser.NewsletterForm import NewsletterForm
-
+import logging
 class Product(FolderView):
 
     def update(self):
@@ -33,10 +33,15 @@ class Product(FolderView):
         return results
 
     def related_items(self):
-        parent = aq_parent(self.context)
+
+        logging.getLogger("sdswas.products.browser.Product").warning(
+                       "PARENT PATH: " +aq_parent(self.context).absolute_url_path())
+
+        products_folder = api.portal.get().unrestrictedTraverse("products")
+
         brains = self.context.portal_catalog(
             path = {
-                'query': parent.absolute_url_path(),
+                'query': products_folder.absolute_url_path(),
                 'depth': 1},
             portal_type=["product"],
             review_state="published",
