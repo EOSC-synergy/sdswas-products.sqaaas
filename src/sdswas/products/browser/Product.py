@@ -41,8 +41,7 @@ class Product(FolderView):
 
         brains = self.context.portal_catalog(
             path = {
-                'query': products_folder.absolute_url_path(),
-                'depth': 1},
+                'query': products_folder.absolute_url_path()},
             portal_type=["product"],
             review_state="published",
             sort_on=["effective"])
