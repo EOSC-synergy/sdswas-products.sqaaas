@@ -39,9 +39,7 @@ class Product(FolderView):
 
         products_folder = api.portal.get().unrestrictedTraverse("products")
 
-        brains = self.context.portal_catalog(
-            path = {
-                'query': products_folder.absolute_url_path()},
+        brains = products_folder.portal_catalog(
             portal_type=["product"],
             review_state="published",
             sort_on=["effective"])
