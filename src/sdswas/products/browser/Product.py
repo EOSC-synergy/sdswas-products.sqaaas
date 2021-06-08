@@ -20,7 +20,6 @@ class Product(FolderView):
             review_state="published",
             sort_on=["effective"])
 
-        #brains = self.context.getFolderContents(contentFilter={"portal_type" : "presentation"})
         results = []
         for brain in brains:
             resObj = brain.getObject()
@@ -34,10 +33,6 @@ class Product(FolderView):
 
     def related_items(self):
 
-        logging.getLogger("sdswas.products.browser.Product").warning(
-                       "Searching related products")
-
-        #products_folder = api.portal.get().unrestrictedTraverse("products")
         products_folder = aq_parent(self.context)
 
         brains = products_folder.portal_catalog(
@@ -45,24 +40,17 @@ class Product(FolderView):
             review_state="published",
             sort_on=["effective"])
 
-        #brains = self.context.getFolderContents(contentFilter={"portal_type" : "presentation"})
         results = []
         for brain in brains:
             resObj = brain.getObject()
 
             if resObj != self.context:
-                logging.getLogger("sdswas.products.browser.Product").warning(
-                    "product added to the list of related products: " +resObj.Title())
 
                 results.append({
                 'title': resObj.Title(),
                 'description': resObj.Description(),
                 'absolute_url': resObj.absolute_url(),
                 })
-            else:
-                logging.getLogger("sdswas.products.browser.Product").warning(
-                       "product NOT added to the list of related products: " +resObj.Title())
-
 
         return results
 
