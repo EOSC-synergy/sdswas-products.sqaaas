@@ -37,7 +37,8 @@ class Product(FolderView):
         logging.getLogger("sdswas.products.browser.Product").warning(
                        "Searching related products")
 
-        products_folder = api.portal.get().unrestrictedTraverse("products")
+        #products_folder = api.portal.get().unrestrictedTraverse("products")
+        products_folder = aq_parent(self.context)
 
         brains = products_folder.portal_catalog(
             portal_type=["product"],
