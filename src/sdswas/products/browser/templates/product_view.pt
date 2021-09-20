@@ -54,7 +54,7 @@
 
                   <!-- Switch to desktop message -->
               <div class="switch-to-desktop-message-container" >
-                <p>Switch to a desktop device in order to preview this item correctly.</p>
+                <p>Switch to landscape mode or try a desktop device in order to preview this item correctly.</p>
               </div><!-- Switch to desktop message ends -->
           </div>
         </div>
