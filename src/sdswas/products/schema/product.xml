@@ -17,6 +17,10 @@ xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
       <description/>
       <title>iFrame URL</title>
     </field>
+    <field name="iframe_has_scroll" type="zope.schema.Bool" indexer:searchable="true">
+      <description/>
+      <title>Enable scroll in iFrame</title>
+    </field>
     <field name="data_policy" type="plone.app.textfield.RichText" indexer:searchable="true">
       <description/>
       <required>False</required>

@@ -9,7 +9,7 @@
 
 <metal:javascriptslot fill-slot="javascript_head_slot">
     <script type="text/javascript" tal:define="navroot context/@@plone_portal_state/navigation_root_url"
-            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/products.js?bust=v1"/>
+            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/products.js?1632301904720"/>
 </metal:javascriptslot>
 
 <metal:main fill-slot="main"><!-- Page content -->

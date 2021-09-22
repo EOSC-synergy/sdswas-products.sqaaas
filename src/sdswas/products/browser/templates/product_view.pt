@@ -9,11 +9,16 @@
 
 <metal:javascriptslot fill-slot="javascript_head_slot">
     <script type="text/javascript" tal:define="navroot context/@@plone_portal_state/navigation_root_url"
-            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/product_view.js?bust=v1"/>
+            tal:attributes="src string:${navroot}/++resource++sdswas.products/js/product_view.js?1632301904720"/>
 </metal:javascriptslot>
 
 <metal:main fill-slot="main"
-  tal:define="iframe_url context/iframe_url">
+  tal:define="iframe_url context/iframe_url;
+              iframe_has_scroll context/iframe_has_scroll;
+              iframe_height_scroll string:600px;
+              iframe_height_noscroll string:810px;
+              iframe_height python: iframe_height_scroll if iframe_has_scroll else iframe_height_noscroll;
+              has_scrolling python:'yes' if iframe_has_scroll else 'no'">
 
   <section class="banner-top bg-color-white">
       <div class="banner-top-wrap main-wrap main-padding">
@@ -45,11 +50,13 @@
                             inline_style string: width:100%"
                 tal:attributes="src image_url; alt context/title;style inline_style">
             </img>
-            <div class="product-placeholder" tal:condition="iframe_url">
-              <iframe scrolling="no" height="100%"
-                  tal:attributes="src context/iframe_url;
-                      allowfullscreen python:True;
-                      frameborder string:0"
+            <div class="product-placeholder" tal:condition="iframe_url"
+                 tal:attributes="style string:max-height:${iframe_height}">
+              <iframe tal:attributes="src context/iframe_url;
+                                  allowfullscreen python:True;
+                                  frameborder string:0;
+                                  scrolling has_scrolling;
+                                  height iframe_height"
                   width="100%"></iframe>
 
                   <!-- Switch to desktop message -->
