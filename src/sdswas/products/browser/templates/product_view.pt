@@ -61,6 +61,7 @@
 
                   <!-- Switch to desktop message -->
               <div class="switch-to-desktop-message-container" >
+              <img src="++theme++sdswas/img/icon_rotate.svg"/>
                 <p>Switch to landscape mode or try a desktop device in order to preview this item correctly.</p>
               </div><!-- Switch to desktop message ends -->
           </div>
