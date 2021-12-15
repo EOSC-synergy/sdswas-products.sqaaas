@@ -34,17 +34,6 @@
      permission="zope2.View"
    />
 
-
-  <browser:page
-     name="product_banner"
-     for="*"
-     layer="zope.interface.Interface"
-     class=".Product.Product"
-     template="templates/product_banner.pt"
-     permission="zope2.View"
-   />
-
-
   <browser:page
      name="product_list"
      for="*"
