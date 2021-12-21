@@ -50,8 +50,14 @@
                             inline_style string: width:100%"
                 tal:attributes="src image_url; alt context/title;style inline_style">
             </img>
-            <div class="product-placeholder" tal:condition="iframe_url"
-                 tal:attributes="style string:max-height:${iframe_height}">
+
+            <div class="product-placeholder bg-color-white" tal:condition="iframe_url">
+
+              <div class="p-margin-bottom bg-color-white">
+                <p tal:condition="nocall:context/introduction"
+                  tal:content="structure context/introduction/raw"></p>
+              </div>
+
               <iframe tal:attributes="src context/iframe_url;
                                   allowfullscreen python:True;
                                   frameborder string:0;

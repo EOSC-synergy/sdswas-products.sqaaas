@@ -13,6 +13,11 @@ xmlns:indexer="http://namespaces.plone.org/supermodel/indexer">
       <description/>
       <title>Image</title>
     </field>
+    <field name="introduction" type="plone.app.textfield.RichText" indexer:searchable="false">
+      <description/>
+      <required>False</required>
+      <title>Introduction</title>
+    </field>
     <field name="iframe_url" type="zope.schema.URI" indexer:searchable="true">
       <description/>
       <title>iFrame URL</title>
